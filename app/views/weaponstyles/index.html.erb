@@ -1,5 +1,12 @@
 <h1>Weapon Styles</h1>
 
 <% @weaponstyles.each do |style| %>
-  <h3><%= style.name %></h3>
+  <h3><%= link_to style.name, "/weaponstyles/#{style.id}" %></h3>
+  <ul>
+    <% style.weapontypes.each do |type| %>
+      <li><%= type.name %></li>
+    <% end %>
+  </ul>
 <% end  %>
+<br/>
+<%= link_to 'Home', '/' %>

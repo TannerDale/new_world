@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get '/attributes/:id', to: 'attributes#show'
 
   get '/weaponstyles', to: 'weaponstyles#index'
+  get '/weaponstyles/:id', to: 'weaponstyles#show'
+
+  get '/weapontypes', to: 'weapontypes#index'
+  get '/weapontypes/:id', to: 'weapontypes#show'
 end

@@ -1,0 +1,14 @@
+<h1><%= @weaponstyle.name %></h1>
+
+<ul>
+  <% @weaponstyle.weapontypes.each do |type| %>
+    <li><b><%= link_to type.name, "/weapontypes/#{type.id}" %></b></li>
+    <ul>
+      <li><%= type.description %></li>
+    </ul><br/>
+  <% end %>
+</ul>
+
+<%= link_to 'All Weapon Styles', '/weaponstyles' %>
+<br/>
+<%= link_to 'Home', '/' %>
