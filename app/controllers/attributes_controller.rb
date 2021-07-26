@@ -1,9 +1,9 @@
 class AttributesController < ApplicationController
   def index
-    @attributes = Attribute.all
+    @attributes = Attr.all
   end
 
   def show
-    @attribute = Attribute.find(params[:id])
+    @attribute = Attr.find(params[:id])
   end
 end

@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_012638) do
+ActiveRecord::Schema.define(version: 2021_07_26_153737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attributes", force: :cascade do |t|
+  create_table "attrs", force: :cascade do |t|
     t.string "name"
     t.string "description"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "damage"
+    t.string "rarity"
+    t.string "perk"
+    t.bigint "weapontype_id"
+    t.index ["weapontype_id"], name: "index_weapons_on_weapontype_id"
   end
 
   create_table "weaponstyles", force: :cascade do |t|
@@ -31,5 +40,6 @@ ActiveRecord::Schema.define(version: 2021_07_26_012638) do
     t.index ["weaponstyle_id"], name: "index_weapontypes_on_weaponstyle_id"
   end
 
+  add_foreign_key "weapons", "weapontypes"
   add_foreign_key "weapontypes", "weaponstyles"
 end
