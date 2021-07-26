@@ -1,0 +1,2 @@
+class Weapontype < ApplicationRecord
+end

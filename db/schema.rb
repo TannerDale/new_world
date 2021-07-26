@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_25_225109) do
+ActiveRecord::Schema.define(version: 2021_07_26_001621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attributes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  create_table "weaponstyles", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "weapontypes", force: :cascade do |t|
     t.string "name"
     t.string "description"
   end

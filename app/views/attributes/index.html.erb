@@ -1,7 +1,10 @@
 <h1>Core Attributes</h1>
 
 
-  <% @attributes.each do |attribute| %>
-    <h3><%= attribute.name %></h3>
-    <p><%= attribute.description %></p>
-  <% end %>
+<% @attributes.each do |attribute| %>
+  <h3><%= link_to attribute.name, "/attributes/#{attribute.id}" %></h3>
+  <p><%= attribute.description %></p>
+<% end %>
+<br/>
+
+<%= link_to 'Home', '/' %>

@@ -1,0 +1,3 @@
+class Weaponstyle < ApplicationRecord
+
+end
