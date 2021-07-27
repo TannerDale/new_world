@@ -1,1 +1,15 @@
 <h1>Cool Weapons</h1>
+
+<%= link_to 'New Weapon', '/weapons/new' %>
+
+<% @weapons.each do |weapon| %>
+  <h3><%= link_to weapon.name, "/weapons/#{weapon.id}" %></h3>
+  <ul>
+    <li>Damage: <%= weapon.damage %></li>
+    <li>Rarity: <%= weapon.rarity %></li>
+    <li>Perk: <%= weapon.perk %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Home', '/' %><br/>
+<%= link_to 'Weapon Styles', '/weaponstyles' %>

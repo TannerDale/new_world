@@ -3,6 +3,13 @@
 <p><%= @weapontype.description %></p>
 <br/>
 
+<p><b>Dope <%= @weapontype.name %> weapons.</b></p>
+<% @weapontype.weapons.each do |weapon| %>
+  <ul>
+    <li><%= link_to weapon.name, "/weapons/#{weapon.id}" %></li>
+  </ul>
+<% end %>
+
 <%= link_to 'Weapon Styles', '/weaponstyles' %><br/>
 <%= link_to 'Weapon Types', '/weapontypes' %>
 <br/>

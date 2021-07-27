@@ -1,1 +1,15 @@
 <h1>Add New Dope Weapon</h1>
+
+<%= form_with url: '/weapons', method: :post, local: true do |form| %>
+  <%= form.text_field :name, placeholder: 'Name' %>
+  <br/>
+  <%= form.collection_select(:weapontype_id, Weapontype.all, :id, :name) %>
+  <br/>
+  <%= form.number_field :damage, step: 1, placeholder: 'Damage'%>
+  <br/>
+  <%= form.text_field :rarity, placeholder: 'Rarity' %>
+  <br/>
+  <%= form.text_field :perk, placeholder: 'Perk' %>
+  <br/>
+  <%= form.submit 'Add Weapon' %>
+<% end %>

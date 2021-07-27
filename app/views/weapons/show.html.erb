@@ -1,0 +1,8 @@
+<h1><%= @weapon.name %></h1>
+
+<h3><%= Weapontype.find(@weapon.weapontype_id).name %></h3>
+<ul>
+  <li>Damage: <%= @weapon.damage %></li>
+  <li>Rarity: <%= @weapon.rarity %></li>
+  <li>Perk: <%= @weapon.perk %></li>
+</ul>
