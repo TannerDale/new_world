@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'
+  get '/profile', to: 'users#show'
 
   get '/attributes', to: 'attributes#index'
   get '/attributes/:id', to: 'attributes#show'

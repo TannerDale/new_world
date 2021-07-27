@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.new(user_params)
+    new_user = User.create(user_params)
+    session[:user_id] = new_user.id
     redirect_to '/'
+  end
+
+  def show
+    @user = User.find(session[:user_id])
   end
 
   private
