@@ -3,4 +3,12 @@
 <%= link_to 'Attributes', '/attributes' %><br/>
 <%= link_to 'Weapon Styles', '/weaponstyles' %><br/>
 <%= link_to 'Weapon Types', '/weapontypes' %><br/>
-<%= link_to 'New User', '/users/new' %>
+<%= link_to 'Factions', '/factions' %><br/>
+<br/>
+<% if current_user %>
+  <%= link_to 'My Profile', '/profile' %><br/>
+  <%= link_to 'Logout', '/sessions', method: :destroy %>
+<% else %>
+  <%= link_to "Register as a User", "/users/new" %></br>
+  <%= link_to "I already have an account", "/login" %>
+<% end %>

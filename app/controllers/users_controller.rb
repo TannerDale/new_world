@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def create
     new_user = User.create(user_params)
+    new_user.save
     session[:user_id] = new_user.id
     redirect_to '/'
   end
@@ -15,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :password)
+    params.permit(:username, :password, :faction_id)
   end
 end

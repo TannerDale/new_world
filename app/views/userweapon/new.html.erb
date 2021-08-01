@@ -1,0 +1,9 @@
+<h1>Add New Dope Weapon to User</h1>
+
+<%= form_with url: '/userweapon', method: :post, local: true do |form| %>
+  <%= form.collection_select(:user_id, User.all, :id, :username) %>
+  <br/>
+  <%= form.collection_select(:weapon_id, Weapon.all, :id, :name) %>
+  <br/>
+  <%= form.submit 'Add Weapon' %>
+<% end %>

@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/profile', to: 'users#show'
 
+  get '/users/weapon', to: 'userweapon#new'
+  post '/userweapon', to: 'userweapon#create'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/sessions', to: 'sessions#destroy'
+
   get '/attributes', to: 'attributes#index'
   get '/attributes/:id', to: 'attributes#show'
 
@@ -18,4 +25,8 @@ Rails.application.routes.draw do
   get '/weapons/new', to: 'weapons#new'
   post '/weapons', to: 'weapons#create'
   get 'weapons/:id', to: 'weapons#show'
+
+  get '/factions', to: 'factions#index'
+  get '/factions/new', to: 'factions#new'
+  post '/factions', to: 'factions#create'
 end

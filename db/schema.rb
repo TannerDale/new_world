@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_27_172323) do
+ActiveRecord::Schema.define(version: 2021_07_28_041806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,23 @@ ActiveRecord::Schema.define(version: 2021_07_27_172323) do
     t.string "description"
   end
 
+  create_table "factions", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+  end
+
+  create_table "usersweapons", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "weapon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_usersweapons_on_user_id"
+    t.index ["weapon_id"], name: "index_usersweapons_on_weapon_id"
   end
 
   create_table "weapons", force: :cascade do |t|
@@ -31,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_07_27_172323) do
     t.string "rarity"
     t.string "perk"
     t.bigint "weapontype_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_weapons_on_user_id"
     t.index ["weapontype_id"], name: "index_weapons_on_weapontype_id"
   end
 
@@ -45,6 +61,9 @@ ActiveRecord::Schema.define(version: 2021_07_27_172323) do
     t.index ["weaponstyle_id"], name: "index_weapontypes_on_weaponstyle_id"
   end
 
+  add_foreign_key "usersweapons", "users"
+  add_foreign_key "usersweapons", "weapons"
+  add_foreign_key "weapons", "users"
   add_foreign_key "weapons", "weapontypes"
   add_foreign_key "weapontypes", "weaponstyles"
 end

@@ -1,0 +1,8 @@
+<h1>Factions!</h1>
+
+<% @factions.each do |faction| %>
+  <h3><%= faction.name %></h3>
+  <p><%= faction.description %></p>
+<% end %>
+
+<%= link_to 'New Faction', '/factions/new' %>

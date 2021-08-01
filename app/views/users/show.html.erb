@@ -1,1 +1,10 @@
-<h1>Welcome <%= @user.username %></h1>
+<h1>Welcome <%= @user.username.capitalize %>!</h1>
+
+<% @user.weapons.each do |weapon| %>
+  <h3><%= weapon.name %></h3>
+  <p>Damage: <%= weapon.damage %></p>
+  <p>Rarity: <%= weapon.rarity %></p>
+  <p>Perk: <%= weapon.perk %></p>
+<% end %>
+<%= link_to 'Home', '/' %><br/>
+<%= link_to 'New Weapon', '/users/weapon' %>
